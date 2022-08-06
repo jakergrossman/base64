@@ -11,10 +11,10 @@ Encode or decode base64 from each FILE to standard output.
 
 With no FILE, or when FILE is -, read standard input.
 
-  -e, --encode		encode data to base64
-              		  This is the default if neither 
-  -d, --decode		decode base64 to data
-  -p, --padding		use padding when encoding data to base64
+  -e, --encode      encode data to base64
+                        This is the default if neither decode or encode are specified
+  -d, --decode      decode base64 to data
+  -p, --padding     use padding when encoding data to base64
   -h, --help        show this help message
 ```
 
@@ -23,7 +23,7 @@ The script `run.sh` is used to build, clean, and test `base64`.
 
 ### Usage:
 
-```
+```console
 [ENV_VARIABLES] ./run.sh [SUBCOMMAND]...
 ```
 
@@ -41,6 +41,26 @@ Subcommands are executed in order
 - clean: clean
 - bear: clean and generate `compile_commands.json` with `bear`
 - test: test using the test script `test/run_tests.py` on tests in `test/files/**`
+
+### Examples
+
+Build `base64`:
+
+```console
+./run.sh build
+```
+
+Build `base64`, placing build files in `bin`
+
+```console
+BUILD_DIR=bin ./run.sh build
+```
+
+Clean, then build, then test `base64`, using `make` as the build tool:
+
+```console
+MAKE=make ./run.sh clean build test
+```
 
 ## The `run_tests.py` Test Script
 Run tests contained in a `files` folder in the same directory as `run_tests.py`.
