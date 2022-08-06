@@ -30,7 +30,7 @@ The script `run.sh` is used to build, clean, and test `base64`.
 #### Environment Variables
 `run.sh` uses specific environment variables to control certain options:
 
-- `BUILD\_DIR`: The output build directory for building and test logs
+- `BUILD_DIR`: The output build directory for building and test logs
 - `MAKE`: whether to use `cmake` or `make`
 
 #### Subcommands
@@ -39,7 +39,7 @@ Subcommands are executed in order
 
 - build: build the project
 - clean: clean
-- bear: clean and generate `compile\_commands.json` with `bear`
+- bear: clean and generate `compile_commands.json` with `bear`
 - test: test using the test script `test/run_tests.py` on tests in `test/files/**`
 
 ## The `run_tests.py` Test Script
