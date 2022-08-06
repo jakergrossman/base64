@@ -1,0 +1,29 @@
+-enp
+;;
+#include <bitset>
+#include <iostream>
+#include <stdexcept>
+#include <string>
+ 
+int main()
+{
+    try {
+        std::bitset<4>{"012"}; // Throws: only '0' or '1' expected
+    } catch (std::invalid_argument const& ex) {
+        std::cout << "#1: " << ex.what() << '\n';
+    }
+ 
+    try {
+        [[maybe_unused]] int f = std::stoi("ABBA"); // Throws: no conversion
+    } catch (std::invalid_argument const& ex) {
+        std::cout << "#2: " << ex.what() << '\n';
+    }
+ 
+    try {
+        [[maybe_unused]] float f = std::stof("(3.14)"); // Throws: no conversion
+    } catch (std::invalid_argument const& ex) {
+        std::cout << "#3: " << ex.what() << '\n';
+    }
+}
+;;
+I2luY2x1ZGUgPGJpdHNldD4KI2luY2x1ZGUgPGlvc3RyZWFtPgojaW5jbHVkZSA8c3RkZXhjZXB0PgojaW5jbHVkZSA8c3RyaW5nPgogCmludCBtYWluKCkKewogICAgdHJ5IHsKICAgICAgICBzdGQ6OmJpdHNldDw0PnsiMDEyIn07IC8vIFRocm93czogb25seSAnMCcgb3IgJzEnIGV4cGVjdGVkCiAgICB9IGNhdGNoIChzdGQ6OmludmFsaWRfYXJndW1lbnQgY29uc3QmIGV4KSB7CiAgICAgICAgc3RkOjpjb3V0IDw8ICIjMTogIiA8PCBleC53aGF0KCkgPDwgJ1xuJzsKICAgIH0KIAogICAgdHJ5IHsKICAgICAgICBbW21heWJlX3VudXNlZF1dIGludCBmID0gc3RkOjpzdG9pKCJBQkJBIik7IC8vIFRocm93czogbm8gY29udmVyc2lvbgogICAgfSBjYXRjaCAoc3RkOjppbnZhbGlkX2FyZ3VtZW50IGNvbnN0JiBleCkgewogICAgICAgIHN0ZDo6Y291dCA8PCAiIzI6ICIgPDwgZXgud2hhdCgpIDw8ICdcbic7CiAgICB9CiAKICAgIHRyeSB7CiAgICAgICAgW1ttYXliZV91bnVzZWRdXSBmbG9hdCBmID0gc3RkOjpzdG9mKCIoMy4xNCkiKTsgLy8gVGhyb3dzOiBubyBjb252ZXJzaW9uCiAgICB9IGNhdGNoIChzdGQ6OmludmFsaWRfYXJndW1lbnQgY29uc3QmIGV4KSB7CiAgICAgICAgc3RkOjpjb3V0IDw8ICIjMzogIiA8PCBleC53aGF0KCkgPDwgJ1xuJzsKICAgIH0KfQ==
